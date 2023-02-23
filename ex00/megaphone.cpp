@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 17:40:27 by vantonie          #+#    #+#             */
-/*   Updated: 2023/02/22 20:06:22 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/02/23 11:57:05 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,23 @@ using std::cout;
 using std::endl;
 using std::string;
 
-string	uppercase(string str) {
+string	uppercase(char **str, int a) {
 	string res;
-	for (int i = 0; i < str.length(); i++)
-		res += toupper(str[i]);
+	string tmp;
+	for (int i = 1; i < a; i++) {
+		tmp = str[i];
+		for (int j = 0; j < tmp.length(); j++)
+			res += (char)toupper(tmp[j]);
+	}
 	return (res);
 }
 
 int	main(int argc, char **argv) {
-	string strCapitalized;
-	string tmp;
+	string capitalized;
 	if (argc == 1)
 		cout << "* LOUD UNBEARABLE FEEDBACK NOISE *" << endl;
-	else
-	{
-		for (int i = 1; i < argc; i++)
-		{
-			tmp += argv[i];
-			tmp += " ";
-		}
-	}
-	strCapitalized = uppercase(tmp);
-	cout << strCapitalized << endl;
+	else 
+		capitalized = uppercase(argv, argc);
+	cout << capitalized << endl;
 	return (0);
 }
