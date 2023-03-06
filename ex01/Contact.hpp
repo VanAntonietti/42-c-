@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:16:45 by vantonie          #+#    #+#             */
-/*   Updated: 2023/03/05 17:24:55 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/03/05 22:54:03 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ class Contact {
         string surName;
         string nickName;
         string phoneNumber;
+        string darkestSecret;
         void display() const;
-        // ~Contact();
+        ~Contact();
 };
 
 #endif
