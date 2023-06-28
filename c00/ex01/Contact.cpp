@@ -1,3 +1,5 @@
+// Copyright 2023 Vanderson Antonietti
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -11,18 +13,18 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Contact.hpp"
+#include "header/Contact.hpp"
 
 using std::cout;
 using std::endl;
 
 Contact::~Contact() {}
 
-void Contact::display() const {
-    cout << "Name:" << Contact::name << endl;
-    cout << "Surname:" << Contact::surName << endl;
-    cout << "Nickname:" << Contact::nickName << endl;
-    cout << "Phone Number:" << Contact::phoneNumber << endl;
-    cout << "Contact Darkest Secret:" << Contact::darkestSecret << endl;
-    
+void  Contact::display() const {
+  cout << "Name:" << Contact::name << endl;
+  cout << "Surname:" << Contact::surName << endl;
+  cout << "Nickname:" << Contact::nickName << endl;
+  cout << "Phone Number:" << Contact::phoneNumber << endl;
+  cout << "Contact Darkest Secret:" << Contact::darkestSecret << endl;
 }
+

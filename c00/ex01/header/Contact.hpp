@@ -1,30 +1,34 @@
+// Copyright 2023 Vanderson Antonietti
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:16:45 by vantonie          #+#    #+#             */
-/*   Updated: 2023/03/05 21:48:19 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/03/05 22:54:03 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-#define PHONEBOOK_H
+#ifndef C00_EX01_HEADER_CONTACT_H_
+#define C00_EX01_HEADER_CONTACT_H_
 
-#include "Contact.hpp"
+#include <iostream>
+#include <string>
 
-class PhoneBook {
-    public:
-        PhoneBook();
-        ~PhoneBook();
-        void addContact(const Contact &contact);
-        void displayContacts() const;
-        bool getContact(int index, Contact &contact) const;
-    private:
-        Contact contacts [8];
-        int next;
+using std::string;
+
+class Contact {
+ public:
+  string name;
+  string surName;
+  string nickName;
+  string phoneNumber;
+  string darkestSecret;
+  void display() const;
+  ~Contact();
 };
 
-#endif
+#endif  // C00_EX01_HEADER_CONTACT_H_
