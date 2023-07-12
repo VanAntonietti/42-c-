@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:54:34 by vantonie          #+#    #+#             */
-/*   Updated: 2023/07/12 08:40:02 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/07/12 09:50:00 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,28 @@ public:
 
     float toFloat() const;
     int toInt() const;
+
+    bool operator>(const Fixed& other) const;
+    bool operator<(const Fixed& other) const;
+    bool operator>=(const Fixed& other) const;
+    bool operator<=(const Fixed& other) const;
+    bool operator==(const Fixed& other) const;
+    bool operator!=(const Fixed& other) const;
+
+    Fixed operator+(const Fixed& other) const;
+    Fixed operator-(const Fixed& other) const;
+    Fixed operator*(const Fixed& other) const;
+    Fixed operator/(const Fixed& other) const;
+
+    Fixed& operator++();
+    Fixed operator++(int);
+    Fixed& operator--();
+    Fixed operator--(int);
+
+    static Fixed& min(Fixed& a, Fixed& b);
+    static const Fixed& min(const Fixed& a, const Fixed& b);
+    static Fixed& max(Fixed& a, Fixed& b);
+    static const Fixed& max(const Fixed& a, const Fixed& b);
 
     friend std::ostream& operator<<(std::ostream& os, const Fixed& number);
 };

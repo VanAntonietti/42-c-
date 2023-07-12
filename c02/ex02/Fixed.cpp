@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:54:26 by vantonie          #+#    #+#             */
-/*   Updated: 2023/07/12 09:34:50 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/07/12 09:54:49 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,84 @@ float Fixed::toFloat() const {
 
 int Fixed::toInt() const {
     return value >> fractionalBits;
+}
+
+bool Fixed::operator>(const Fixed& other) const {
+    return value > other.value;
+}
+
+bool Fixed::operator<(const Fixed& other) const {
+    return value < other.value;
+}
+
+bool Fixed::operator>=(const Fixed& other) const {
+    return value >= other.value;
+}
+
+bool Fixed::operator<=(const Fixed& other) const {
+    return value <= other.value;
+}
+
+bool Fixed::operator==(const Fixed& other) const {
+    return value == other.value;
+}
+
+bool Fixed::operator!=(const Fixed& other) const {
+    return value != other.value;
+}
+
+Fixed Fixed::operator+(const Fixed& other) const {
+    return Fixed(toFloat() + other.toFloat());
+}
+
+Fixed Fixed::operator-(const Fixed& other) const {
+    return Fixed(toFloat() - other.toFloat());
+}
+
+Fixed Fixed::operator*(const Fixed& other) const {
+    return Fixed(toFloat() * other.toFloat());
+}
+
+Fixed Fixed::operator/(const Fixed& other) const {
+    return Fixed(toFloat() / other.toFloat());
+}
+
+Fixed& Fixed::operator++() {
+    value++;
+    return *this;
+}
+
+Fixed Fixed::operator++(int) {
+    Fixed tmp = *this;
+    ++(*this);
+    return tmp;
+}
+
+Fixed& Fixed::operator--() {
+    value--;
+    return *this;
+}
+
+Fixed Fixed::operator--(int) {
+    Fixed tmp = *this;
+    --(*this);
+    return tmp;
+}
+
+Fixed& Fixed::min(Fixed& a, Fixed& b) {
+    return (a < b) ? a : b;
+}
+
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b) {
+    return (a < b) ? a : b;
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b) {
+    return (a > b) ? a : b;
+}
+
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b) {
+    return (a > b) ? a : b;
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& number) {
