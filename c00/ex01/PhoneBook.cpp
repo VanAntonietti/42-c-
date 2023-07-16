@@ -14,48 +14,44 @@
 
 #include <iostream>
 #include <iomanip>
-#include "header/PhoneBook.hpp"
-
-using std::cout;
-using std::endl;
-using std::setw;
+#include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook() {
   next = 0;
 }
 
 PhoneBook::~PhoneBook() {
-  cout << "Phonebook destroyed." << endl;
+  std::cout << "Phonebook destroyed." << std::endl;
 }
 
 void PhoneBook::addContact(const Contact &contact) {
   if (next < 8) {
     contacts[next++] = contact;
-    cout << "Contact added." << endl;
+    std::cout << "Contact added." << std::endl;
   } else {
-    cout << "Phonebook full." << endl;
+    std::cout << "Phonebook full." << std::endl;
   }
 }
 
 void PhoneBook::displayContacts() const {
-  cout << "|     Index|First Name| Last Name|  Nickname|" << endl;
-  cout << "|----------|----------|----------|----------|" << endl;
+  std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
+  std::cout << "|----------|----------|----------|----------|" << std::endl;
   for (int i = 0; i < next; i++) {
-    string name = contacts[i].name.substr(0, 10);
+    std::string name = contacts[i].name.substr(0, 10);
     if (name.size() == 10) {
       name.replace(9, 1, ".");
     }
-    string surName = contacts[i].surName.substr(0, 10);
+    std::string surName = contacts[i].surName.substr(0, 10);
     if (surName.size() == 10) {
       surName.replace(9, 1, ".");
     }
-    string nickName = contacts[i].nickName.substr(0, 10);
+    std::string nickName = contacts[i].nickName.substr(0, 10);
     if (nickName.size() == 10) {
       nickName.replace(9, 1, ".");
     }
-    cout << "|" << setw(10) << i << "|" << setw(10) << name <<
-      "|" << setw(10) << surName << "|" << setw(10) <<
-      nickName << "|" << endl;
+    std::cout << "|" << std::setw(10) << i << "|" << std::setw(10) << name <<
+      "|" << std::setw(10) << surName << "|" << std::setw(10) <<
+      nickName << "|" << std::endl;
   }
 }
 

@@ -14,45 +14,40 @@
 
 #include <iostream>
 #include <string>
-#include "header/Contact.hpp"
-#include "header/PhoneBook.hpp"
-
-using std::string;
-using std::endl;
-using std::cout;
-using std::cin;
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 int main() {
   PhoneBook phonebook;
 
   while (true) {
-    string  input;
-    cout << "Enter a command: ";
-    getline(cin, input);
+    std::string input;
+    std::cout << "Enter a command: ";
+    getline(std::cin, input);
     if (input == "ADD") {
       Contact contact;
-      cout << "Enter first name: ";
-      getline(cin, contact.name);
-      cout << "Enter surname: ";
-      getline(cin, contact.surName);
-      cout << "Enter nickname: ";
-      getline(cin, contact.nickName);
-      cout << "Enter phone number: ";
-      getline(cin, contact.phoneNumber);
-      cout << "Enter contact darkest secret: ";
-      getline(cin, contact.darkestSecret);
+      std::cout << "Enter first name: ";
+      getline(std::cin, contact.name);
+      std::cout << "Enter surname: ";
+      getline(std::cin, contact.surName);
+      std::cout << "Enter nickname: ";
+      getline(std::cin, contact.nickName);
+      std::cout << "Enter phone number: ";
+      getline(std::cin, contact.phoneNumber);
+      std::cout << "Enter contact darkest secret: ";
+      getline(std::cin, contact.darkestSecret);
       phonebook.addContact(contact);
     } else if (input == "SEARCH") {
         phonebook.displayContacts();
         int index;
-        cout << "Enter the index number you want to display: ";
-        cin >> index;
-        cin.ignore();
+        std::cout << "Enter the index number you want to display: ";
+        std::cin >> index;
+        std::cin.ignore();
         Contact contact;
           if (phonebook.getContact(index, contact)) {
             contact.display();
           } else {
-              cout << "Invalid index." << endl;
+              std::cout << "Invalid index." << std::endl;
             }
         } else if (input == "EXIT") {
             break;

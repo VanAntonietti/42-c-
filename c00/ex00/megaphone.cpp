@@ -15,13 +15,9 @@
 #include <iostream>
 #include <string>
 
-using std::cout;
-using std::endl;
-using std::string;
-
-string  uppercase(char **str, int a) {
-  string res;
-  string tmp;
+std::string uppercase(char **str, int a) {
+  std::string res;
+  std::string tmp;
   for (int i = 1; i < a; i++) {
     tmp = str[i];
     for (int j = 0; j < static_cast<int> (tmp.length()); j++)
@@ -31,11 +27,11 @@ string  uppercase(char **str, int a) {
 }
 
 int main(int argc, char **argv) {
-  string capitalized;
+  std::string capitalized;
   if (argc == 1)
-    cout << "* LOUD UNBEARABLE FEEDBACK NOISE *" << endl;
+    std::cout << "* LOUD UNBEARABLE FEEDBACK NOISE *" << std::endl;
   else
     capitalized = uppercase(argv, argc);
-  cout << capitalized << endl;
+  std::cout << capitalized << std::endl;
   return (0);
 }

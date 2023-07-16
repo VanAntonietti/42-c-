@@ -18,15 +18,13 @@
 #include <iostream>
 #include <string>
 
-using std::string;
-
 class Contact {
  public:
-  string name;
-  string surName;
-  string nickName;
-  string phoneNumber;
-  string darkestSecret;
+  std::string name;
+  std::string surName;
+  std::string nickName;
+  std::string phoneNumber;
+  std::string darkestSecret;
   void display() const;
   ~Contact();
 };

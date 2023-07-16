@@ -13,18 +13,15 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include "header/Contact.hpp"
-
-using std::cout;
-using std::endl;
+#include "Contact.hpp"
 
 Contact::~Contact() {}
 
 void  Contact::display() const {
-  cout << "Name:" << Contact::name << endl;
-  cout << "Surname:" << Contact::surName << endl;
-  cout << "Nickname:" << Contact::nickName << endl;
-  cout << "Phone Number:" << Contact::phoneNumber << endl;
-  cout << "Contact Darkest Secret:" << Contact::darkestSecret << endl;
+  std::cout << "Name:" << Contact::name << std::endl;
+  std::cout << "Surname:" << Contact::surName << std::endl;
+  std::cout << "Nickname:" << Contact::nickName << std::endl;
+  std::cout << "Phone Number:" << Contact::phoneNumber << std::endl;
+  std::cout << "Contact Darkest Secret:" << Contact::darkestSecret << std::endl;
 }
 
