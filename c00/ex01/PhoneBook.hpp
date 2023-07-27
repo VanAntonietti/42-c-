@@ -27,6 +27,7 @@ class PhoneBook {
  private:
   Contact contacts[8];
   int next;
+  int oldest;
 };
 
 #endif  // C00_EX01_HEADER_PHONEBOOK_H_

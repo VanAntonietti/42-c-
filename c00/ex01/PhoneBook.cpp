@@ -19,6 +19,7 @@
 PhoneBook::PhoneBook() {
   std::cout << "Constructor called." << std::endl;
   next = 0;
+  oldest = 0;
   return;
 }
 
@@ -32,7 +33,9 @@ void PhoneBook::addContact(const Contact &contact) {
     contacts[next++] = contact;
     std::cout << "Contact added." << std::endl;
   } else {
-    std::cout << "Phonebook full." << std::endl;
+    contacts[oldest] = contact;
+    oldest = (oldest + 1) % 8;
+    std::cout << "Contact added and oldest contact replaced." << std::endl;
   }
 }
 

@@ -23,6 +23,7 @@ int main() {
   while (true) {
     std::string input;
     std::cout << "Enter a command: ";
+
     getline(std::cin, input);
     if (input == "ADD") {
       Contact contact;
