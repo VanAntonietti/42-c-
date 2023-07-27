@@ -31,8 +31,9 @@ int main(int argc, char **argv) {
 
   if (argc == 1)
     std::cout << "* LOUD UNBEARABLE FEEDBACK NOISE *" << std::endl;
-  else
+  else {
     capitalized = uppercase(argv, argc);
-  std::cout << capitalized << std::endl;
+  	std::cout << capitalized << std::endl;
+  }
   return (0);
 }
