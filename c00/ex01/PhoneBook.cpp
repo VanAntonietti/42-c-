@@ -17,11 +17,14 @@
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook() {
+  std::cout << "Constructor called." << std::endl;
   next = 0;
+  return;
 }
 
 PhoneBook::~PhoneBook() {
   std::cout << "Phonebook destroyed." << std::endl;
+  return;
 }
 
 void PhoneBook::addContact(const Contact &contact) {

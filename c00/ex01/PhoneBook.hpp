@@ -20,10 +20,10 @@
 class PhoneBook {
  public:
   PhoneBook();
-  ~PhoneBook();
   void addContact(const Contact &contact);
   void displayContacts() const;
   bool getContact(int index, Contact &contact) const;
+  ~PhoneBook();
  private:
   Contact contacts[8];
   int next;

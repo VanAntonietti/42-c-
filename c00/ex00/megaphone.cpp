@@ -28,6 +28,7 @@ std::string uppercase(char **str, int a) {
 
 int main(int argc, char **argv) {
   std::string capitalized;
+
   if (argc == 1)
     std::cout << "* LOUD UNBEARABLE FEEDBACK NOISE *" << std::endl;
   else

@@ -15,7 +15,15 @@
 #include <iostream>
 #include "Contact.hpp"
 
-Contact::~Contact() {}
+Contact::Contact() {
+  std::cout << "Constructor called." << std::endl;
+  return;
+}
+
+Contact::~Contact() {
+  std::cout << "Destructor called." << std::endl;
+  return;
+}
 
 void  Contact::display() const {
   std::cout << "Name:" << Contact::name << std::endl;

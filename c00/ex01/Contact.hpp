@@ -12,21 +12,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef C00_EX01_HEADER_CONTACT_H_
-#define C00_EX01_HEADER_CONTACT_H_
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 
 #include <iostream>
 #include <string>
 
 class Contact {
- public:
-  std::string name;
-  std::string surName;
-  std::string nickName;
-  std::string phoneNumber;
-  std::string darkestSecret;
-  void display() const;
-  ~Contact();
+  public:
+    Contact();
+    std::string name;
+    std::string surName;
+    std::string nickName;
+    std::string phoneNumber;
+    std::string darkestSecret;
+    void display() const;
+    ~Contact();
 };
 
-#endif  // C00_EX01_HEADER_CONTACT_H_
+#endif  // CONTACT_HPP
