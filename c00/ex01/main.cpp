@@ -39,20 +39,22 @@ int main() {
       getline(std::cin, contact.darkestSecret);
       phonebook.addContact(contact);
     } else if (input == "SEARCH") {
-        phonebook.displayContacts();
-        int index;
-        std::cout << "Enter the index number you want to display: ";
-        std::cin >> index;
-        std::cin.ignore();
-        Contact contact;
-          if (phonebook.getContact(index, contact)) {
-            contact.display();
-          } else {
-              std::cout << "Invalid index." << std::endl;
-            }
-        } else if (input == "EXIT") {
-            break;
+      phonebook.displayContacts();
+      std::string indexInput;
+      std::cout << "Enter the index number you want to display: ";
+      getline(std::cin, indexInput);
+      if(indexInput) {
       }
+      int index = std::stoi(indexInput);
+      Contact contact;
+        if (phonebook.getContact(index, contact)) {
+          contact.display();
+          } else {
+            std::cout << "Invalid index." << std::endl;
+          }
+      } else if (input == "EXIT") {
+        break;
+        }
   }
     return 0;
 }
