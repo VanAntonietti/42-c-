@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 00:11:14 by vantonie          #+#    #+#             */
-/*   Updated: 2023/08/02 00:20:37 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/08/02 19:19:48 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ Data::Data() {
   std::cout << "Default constructor called" << std::endl;
 }
 
-Data::Data(std::string name, int len, int height) {
+Data::Data(std::string name, double len, int weight) {
   this->_name = name;
   this->_len = len;
-  this->_height = height;
+  this->_weight = weight;
 }
 
 Data::Data(const Data &other) {
@@ -31,29 +31,33 @@ Data &Data::operator=(Data const &other) {
   if (this != &other) {
     this->_name = other._name;
     this->_len = other._len;
-    this->_height = other._height;
+    this->_weight = other._weight;
   }
   return *this;
+}
+
+Data::~Data() {
+  std::cout << "Destructor called" << std::endl;
 }
 
 std::string Data::getName() {
   return (this->_name);
 }
 
-int Data::getLen() {
+double Data::getLen() {
   return (this->_len);
 }
 
-int Data::getHeight() {
-  return (this->_height);
+int Data::getweight() {
+  return (this->_weight);
 }
 
-void Data::setLen(int len) {
+void Data::setLen(double len) {
   this->_len = len;
 }
 
-void Data::setHeight(int height) {
-  this->_height = height;
+void Data::setweight(int weight) {
+  this->_weight = weight;
 }
 
 void Data::setName(std::string name) {
@@ -61,5 +65,5 @@ void Data::setName(std::string name) {
 }
 
 double Data::calcIMC() {
-  return (this->_len / (this->_height * this->_height));
+  return (this->_weight / (this->_len * this->_len));
 }

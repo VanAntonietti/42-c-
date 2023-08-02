@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 22:11:13 by vantonie          #+#    #+#             */
-/*   Updated: 2023/08/02 00:29:13 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/08/02 19:15:17 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main()
 
   std::cout << "Name: " << data->getName() << std::endl;
   std::cout << "Len: " << data->getLen() << std::endl;
-  std::cout << "Height: " << data->getHeight() << std::endl;
+  std::cout << "weight: " << data->getweight() << std::endl;
   std::cout << "IMC: " << data->calcIMC() << std::endl;
   std::cout << "is storage in :" << data << std::endl;
   std::cout << "the serializer number is:" << ptr<< std::endl;
