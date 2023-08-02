@@ -13,6 +13,7 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <limits>
 
 std::string toUpperCase(const std::string& str) {
   std::string upperStr = str;
@@ -27,6 +28,7 @@ std::string toUpperCase(const std::string& str) {
 int main() {
   PhoneBook phonebook;
   std::string command;
+  int maxAvailable = 1000;
   while (true) {
     std::cout << "Enter command (ADD, SEARCH, EXIT): ";
     std::cin >> command;
@@ -58,7 +60,7 @@ int main() {
           std::cout << "Invalid command. Please try again." << std::endl;
         }
     std::cin.clear();
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::cin.ignore(maxAvailable, '\n');
   }
   return 0;
 }

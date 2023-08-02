@@ -30,6 +30,7 @@ void PhoneBook::addContact(const Contact& newContact) {
 }
 
 void PhoneBook::search() const {
+  int maxAvailable = 1000;
   if (numContacts == 0) {
     std::cout << "Phonebook is empty. No contacts to display." << std::endl;
     return;
@@ -48,7 +49,7 @@ void PhoneBook::search() const {
     if (!std::cin || index < 0 || index >= numContacts) {
       std::cout << "Invalid input. Enter a valid index (0 to " << numContacts - 1 << "): ";
       std::cin.clear();
-      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      std::cin.ignore(maxAvailable, '\n');
       continue;
     } else {
       contacts[index].display();
