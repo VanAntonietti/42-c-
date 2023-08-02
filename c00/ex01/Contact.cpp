@@ -1,5 +1,3 @@
-// Copyright 2023 Vanderson Antonietti
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -8,28 +6,34 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:19:13 by vantonie          #+#    #+#             */
-/*   Updated: 2023/03/05 22:55:08 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/08/02 11:02:05 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Contact.hpp"
 
-Contact::Contact() {
-  std::cout << "Constructor called." << std::endl;
-  return;
+Contact::Contact() {}
+
+Contact::Contact(std::string fName, std::string lName, std::string nick, std::string phone, std::string secret): firstName(fName), lastName(lName), nickname(nick), phoneNumber(phone), darkestSecret(secret) {}
+
+void Contact::display() const {
+  std::cout << "First Name: " << firstName << std::endl;
+  std::cout << "Last Name: " << lastName << std::endl;
+  std::cout << "Nickname: " << nickname << std::endl;
+  std::cout << "Phone Number: " << phoneNumber << std::endl;
+  std::cout << "Darkest Secret: " << darkestSecret << std::endl;
 }
 
-Contact::~Contact() {
-  std::cout << "Destructor called." << std::endl;
-  return;
+Contact::~Contact() {}
+
+std::string Contact::getFirstName() const {
+  return firstName;
 }
 
-void  Contact::display() const {
-  std::cout << "Name:" << Contact::name << std::endl;
-  std::cout << "Surname:" << Contact::surName << std::endl;
-  std::cout << "Nickname:" << Contact::nickName << std::endl;
-  std::cout << "Phone Number:" << Contact::phoneNumber << std::endl;
-  std::cout << "Contact Darkest Secret:" << Contact::darkestSecret << std::endl;
+std::string Contact::getLastName() const {
+  return lastName;
 }
 
+std::string Contact::getNickname() const {
+  return nickname;
+}

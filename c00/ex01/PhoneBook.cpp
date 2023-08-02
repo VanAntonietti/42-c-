@@ -12,60 +12,55 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <iomanip>
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() {
-  std::cout << "Constructor called." << std::endl;
-  next = 0;
-  oldest = 0;
-  return;
-}
+PhoneBook::~PhoneBook() {}
 
-PhoneBook::~PhoneBook() {
-  std::cout << "Phonebook destroyed." << std::endl;
-  return;
-}
+PhoneBook::PhoneBook() : numContacts(0), startIndex(0), oldest(0) {}
 
-void PhoneBook::addContact(const Contact &contact) {
-  if (next < 8) {
-    contacts[next++] = contact;
+void PhoneBook::addContact(const Contact& newContact) {
+  if (numContacts < maxContacts) {
+    contacts[numContacts++] = newContact;
     std::cout << "Contact added." << std::endl;
-  } else {
-    contacts[oldest] = contact;
-    oldest = (oldest + 1) % 8;
-    std::cout << "Contact added and oldest contact replaced." << std::endl;
+    } else {
+        contacts[oldest] = newContact;
+        oldest = (oldest + 1) % maxContacts;
+        std::cout << "Contact added and oldest contact replaced." << std::endl;
+    }
+}
+
+void PhoneBook::search() const {
+  if (numContacts == 0) {
+    std::cout << "Phonebook is empty. No contacts to display." << std::endl;
+    return;
+  }
+  std::cout << std::setw(10) << "Index" << "|" << std::setw(10) << "First Name" << "|"
+    << std::setw(10) << "Last Name" << "|" << std::setw(10) << "Nickname" << std::endl;
+  std::cout << std::string(41, '-') << std::endl;
+  for (int i = 0; i < numContacts; ++i) {
+    std::cout << std::setw(10) << i << "|" << std::setw(10) << truncateText(contacts[i].getFirstName()) << "|"
+      << std::setw(10) << truncateText(contacts[i].getLastName()) << "|" << std::setw(10) << truncateText(contacts[i].getNickname()) << std::endl;
+  }
+  std::cout << "Enter the index of the contact to display: ";
+  int index;
+  while (true) {
+    std::cin >> index;
+    if (!std::cin || index < 0 || index >= numContacts) {
+      std::cout << "Invalid input. Enter a valid index (0 to " << numContacts - 1 << "): ";
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+      continue;
+    } else {
+      contacts[index].display();
+      break;
+    }
   }
 }
 
-void PhoneBook::displayContacts() const {
-  std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
-  std::cout << "|----------|----------|----------|----------|" << std::endl;
-  for (int i = 0; i < next; i++) {
-    std::string name = contacts[i].name.substr(0, 10);
-    if (name.size() == 10) {
-      name.replace(9, 1, ".");
-    }
-    std::string surName = contacts[i].surName.substr(0, 10);
-    if (surName.size() == 10) {
-      surName.replace(9, 1, ".");
-    }
-    std::string nickName = contacts[i].nickName.substr(0, 10);
-    if (nickName.size() == 10) {
-      nickName.replace(9, 1, ".");
-    }
-    std::cout << "|" << std::setw(10) << i << "|" << std::setw(10) << name <<
-      "|" << std::setw(10) << surName << "|" << std::setw(10) <<
-      nickName << "|" << std::endl;
-  }
-}
-
-bool PhoneBook::getContact(int index, Contact &contact) const {
-  if (index >= 0 && index < next) {
-    contact = contacts[index];
-      return true;
+std::string PhoneBook::truncateText(const std::string& text) const {
+  if (text.length() <= 10) {
+    return text;
   } else {
-      return false;
+      return text.substr(0, 9) + ".";
     }
 }

@@ -12,49 +12,53 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include "Contact.hpp"
 #include "PhoneBook.hpp"
+
+std::string toUpperCase(const std::string& str) {
+  std::string upperStr = str;
+  for (size_t i = 0; i < upperStr.length(); ++i) {
+    if (upperStr[i] >= 'a' && upperStr[i] <= 'z') {
+      upperStr[i] = static_cast<char>(upperStr[i] - 'a' + 'A');
+    }
+  }
+  return upperStr;
+}
 
 int main() {
   PhoneBook phonebook;
-
+  std::string command;
   while (true) {
-    std::string input;
-    std::cout << "Enter a command: ";
-
-    getline(std::cin, input);
-    if (input == "ADD") {
-      Contact contact;
-      std::cout << "Enter first name: ";
-      getline(std::cin, contact.name);
-      std::cout << "Enter surname: ";
-      getline(std::cin, contact.surName);
-      std::cout << "Enter nickname: ";
-      getline(std::cin, contact.nickName);
-      std::cout << "Enter phone number: ";
-      getline(std::cin, contact.phoneNumber);
-      std::cout << "Enter contact darkest secret: ";
-      getline(std::cin, contact.darkestSecret);
-      phonebook.addContact(contact);
-    } else if (input == "SEARCH") {
-      phonebook.displayContacts();
-      std::string indexInput;
-      std::cout << "Enter the index number you want to display: ";
-      getline(std::cin, indexInput);
-      if(indexInput) {
-      }
-      int index = std::stoi(indexInput);
-      Contact contact;
-        if (phonebook.getContact(index, contact)) {
-          contact.display();
-          } else {
-            std::cout << "Invalid index." << std::endl;
-          }
-      } else if (input == "EXIT") {
-        break;
+    std::cout << "Enter command (ADD, SEARCH, EXIT): ";
+    std::cin >> command;
+    command = toUpperCase(command);
+    if (command == "ADD") {
+      std::string fName, lName, nick, phone, secret;
+      std::cout << "Enter First Name: ";
+      std::cin >> fName;
+      std::cout << "Enter Last Name: ";
+      std::cin >> lName;
+      std::cout << "Enter Nickname: ";
+      std::cin >> nick;
+      std::cout << "Enter Phone Number: ";
+      std::cin >> phone;
+      std::cout << "Enter Darkest Secret: ";
+      std::cin >> secret;
+      if (!fName.empty() && !lName.empty() && !nick.empty() && !phone.empty() && !secret.empty()) {
+        Contact newContact(fName, lName, nick, phone, secret);
+        phonebook.addContact(newContact);
+        std::cout << "Contact added successfully." << std::endl;
+      } else {
+        std::cout << "Contact fields cannot be empty. Please try again." << std::endl;
         }
+    } else if (command == "SEARCH") {
+        phonebook.search();
+       } else if (command == "EXIT") {
+          break;
+        } else {
+          std::cout << "Invalid command. Please try again." << std::endl;
+        }
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
   }
-    return 0;
+  return 0;
 }

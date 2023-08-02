@@ -12,22 +12,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef C00_EX01_HEADER_PHONEBOOK_H_
-#define C00_EX01_HEADER_PHONEBOOK_H_
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
 #include "Contact.hpp"
 
+#include <sstream>
+
 class PhoneBook {
- public:
-  PhoneBook();
-  void addContact(const Contact &contact);
-  void displayContacts() const;
-  bool getContact(int index, Contact &contact) const;
-  ~PhoneBook();
- private:
-  Contact contacts[8];
-  int next;
-  int oldest;
+  private:
+    static const int maxContacts = 8;
+    Contact contacts[maxContacts];
+    int numContacts;
+    int startIndex;
+    int oldest;
+    std::string truncateText(const std::string& text) const;
+  public:
+    PhoneBook();
+    void addContact(const Contact& newContact);
+    void search() const;
+    ~PhoneBook();
 };
 
-#endif  // C00_EX01_HEADER_PHONEBOOK_H_
+#endif // PHONEBOOK_HPP
