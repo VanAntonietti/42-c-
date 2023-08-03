@@ -7,7 +7,7 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	g++ -Wall -Wextra -Werror -std=c++98 -o $(NAME) $(OBJ)
+	c++ -Wall -Wextra -Werror -std=c++98 -o $(NAME) $(OBJ)
 
 clean:
 	rm -f $(OBJ)

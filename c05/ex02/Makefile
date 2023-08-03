@@ -12,10 +12,10 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	clang++ -I . -Wall -Wextra -Werror -g -std=c++98 $(OBJ) -o $(NAME)
+	clanc++ -I . -Wall -Wextra -Werror -g -std=c++98 $(OBJ) -o $(NAME)
 
 $(OBJ): %.o: %.cpp
-	clang++ -I . -Wall -Wextra -Werror -g -std=c++98 -c $< -o $@
+	clanc++ -I . -Wall -Wextra -Werror -g -std=c++98 -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
