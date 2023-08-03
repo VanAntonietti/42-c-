@@ -25,6 +25,15 @@ std::string toUpperCase(const std::string& str) {
   return upperStr;
 }
 
+bool isAllDigits(const std::string& str) {
+  for (size_t i = 0; i < str.length(); ++i) {
+    if (!isdigit(str[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
 int main() {
   PhoneBook phonebook;
   std::string command;
@@ -35,22 +44,32 @@ int main() {
     command = toUpperCase(command);
     if (command == "ADD") {
       std::string fName, lName, nick, phone, secret;
+
       std::cout << "Enter First Name: ";
-      std::cin >> fName;
+      std::cin.ignore();
+      std::getline(std::cin, fName);
+
       std::cout << "Enter Last Name: ";
-      std::cin >> lName;
+      std::cin.ignore();
+      std::getline(std::cin, lName);
+
       std::cout << "Enter Nickname: ";
-      std::cin >> nick;
-      std::cout << "Enter Phone Number: ";
-      std::cin >> phone;
+      std::cin.ignore();
+      std::getline(std::cin, nick);
+
+      std::cout << "Enter Phone Number(only use digits): ";
+      std::cin.ignore();
+      std::getline(std::cin, phone);
+
       std::cout << "Enter Darkest Secret: ";
-      std::cin >> secret;
-      if (!fName.empty() && !lName.empty() && !nick.empty() && !phone.empty() && !secret.empty()) {
+      std::cin.ignore();
+      std::getline(std::cin, secret);
+
+      if (!fName.empty() && !lName.empty() && !nick.empty() && !phone.empty() && !secret.empty() && isAllDigits(phone)) {
         Contact newContact(fName, lName, nick, phone, secret);
         phonebook.addContact(newContact);
-        std::cout << "Contact added successfully." << std::endl;
       } else {
-        std::cout << "Contact fields cannot be empty. Please try again." << std::endl;
+        std::cout << "Contact fields cannot be empty or contain invalid input. Please try again." << std::endl;
         }
     } else if (command == "SEARCH") {
         phonebook.search();
@@ -58,9 +77,9 @@ int main() {
           break;
         } else {
           std::cout << "Invalid command. Please try again." << std::endl;
+          std::cin.clear();
+          std::cin.ignore(maxAvailable, '\n');
         }
-    std::cin.clear();
-    std::cin.ignore(maxAvailable, '\n');
   }
   return 0;
 }
