@@ -2,12 +2,14 @@ NAME = megaphone
 
 SRC = megaphone.cpp
 
+CXX = c++
+
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	c++ -Wall -Wextra -Werror -std=c++98 -o $(NAME) $(OBJ)
+	$(CXX) -Wall -Wextra -Werror -std=c++98 -o $(NAME) $(OBJ)
 
 clean:
 	rm -f $(OBJ)

@@ -7,15 +7,17 @@ SRC = 	main.cpp \
 		RobotomyRequestForm.cpp \
 		PresidentialPardonForm.cpp
 
+CXX = c++
+
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	clanc++ -I . -Wall -Wextra -Werror -g -std=c++98 $(OBJ) -o $(NAME)
+	$(CXX) -Wall -Wextra -Werror -std=c++98 -o $(NAME) $(OBJ)
 
 $(OBJ): %.o: %.cpp
-	clanc++ -I . -Wall -Wextra -Werror -g -std=c++98 -c $< -o $@
+	$(CXX) -I . -Wall -Wextra -Werror -g -std=c++98 -c $< -o $@
 
 clean:
 	rm -f $(OBJ)

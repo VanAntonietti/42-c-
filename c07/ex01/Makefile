@@ -2,12 +2,14 @@ NAME = iter
 
 SRC = 	main.cpp \
 
+CXX = c++
+
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	c++ -I . -Wall -Wextra -Werror -g -std=c++98 $(OBJ) -o $(NAME)
+	$(CXX) -Wall -Wextra -Werror -std=c++98 -o $(NAME) $(OBJ)
 
 clean:
 	rm -f $(OBJ)
