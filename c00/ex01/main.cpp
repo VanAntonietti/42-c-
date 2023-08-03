@@ -13,7 +13,6 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include <limits>
 
 std::string toUpperCase(const std::string& str) {
   std::string upperStr = str;
