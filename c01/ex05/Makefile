@@ -1,7 +1,7 @@
 NAME = harl
 
 SRC = 	main.cpp \
-				Harl.cpp
+		Harl.cpp
 
 CXX = c++
 
@@ -17,7 +17,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	
+
 re: fclean all
 
 .PHONY: all clean fclean re

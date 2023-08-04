@@ -1,7 +1,7 @@
 NAME = bettersed
 
 SRC = 	main.cpp \
-				FileReplace.cpp
+		FileReplace.cpp
 
 CXX = c++
 
