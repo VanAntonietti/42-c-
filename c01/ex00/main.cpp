@@ -22,5 +22,5 @@ int main () {
   stack.randomChump("Tormod");
   heap->randomChump("Acererak");
   delete heap;
-  return (0);
+  return 0;
 }
