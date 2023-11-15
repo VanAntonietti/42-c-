@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 20:54:26 by vantonie          #+#    #+#             */
-/*   Updated: 2023/07/04 15:32:43 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/11/15 17:56:38 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int const Fixed::eight = 8;
   }
 
   Fixed &Fixed::operator = (const Fixed &fixed) {
-    std::cout << "Assignation operator called" << std::endl;
+    std::cout << "Copy assignment operator called" << std::endl;
     this->setRawBits(fixed.getRawBits());
     return(*this);
   }
