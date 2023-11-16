@@ -3,14 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 10:18:44 by vantonie          #+#    #+#             */
-/*   Updated: 2023/07/12 15:01:01 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/11/16 19:16:40 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap() {
+	std::cout << "Default constructor called." << std::endl;
+}
 
 ClapTrap::ClapTrap(std::string name) {
   this->name = name;
@@ -39,7 +43,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
   return *this;
 }
 
-ClapTrap::~ClapTrap(){
+ClapTrap::~ClapTrap() {
   std::cout << "Default destructor called for" << name << std::endl;
 }
 
@@ -59,7 +63,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 
 void ClapTrap::beRepaired(unsigned int amount) {
   if(hitPoints <= 0)
-    std::cout << "This Claptrap can´t be repared anymore, it is already gone to Belieze" << std::endl;
+    std::cout << "This Claptrap can´t be repared anymore, it already gone to Belieze" << std::endl;
   std::cout << "ClapTrap" << name << "uses" << amount << "to recover" << amount << "hit points" << std::endl;
   hitPoints += amount;
   energyPoints -= amount;
