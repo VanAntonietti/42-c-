@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 15:32:38 by vantonie          #+#    #+#             */
-/*   Updated: 2023/11/16 19:23:57 by coder            ###   ########.fr       */
+/*   Updated: 2023/11/18 12:58:46 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-	
   ScavTrap::ScavTrap() : ClapTrap("Default") {
     this->_hitPoints = 100;
     this->_energyPoints = 50;

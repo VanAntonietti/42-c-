@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:22:56 by vantonie          #+#    #+#             */
-/*   Updated: 2023/11/16 19:07:52 by coder            ###   ########.fr       */
+/*   Updated: 2023/12/01 17:05:15 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 
 int main() {
+  std::cout << "Clap Trap Tests" << std::endl;
+
+  ClapTrap clap;
   ClapTrap clap1("ClapTrap1");
   ClapTrap clap2("ClapTrap2");
 
@@ -51,7 +54,6 @@ int main() {
   clap2.takeDamage(0);
   clap1.attack("ClapTrap2");
   clap2.takeDamage(0);
-  
 
-	return 0;
+  return 0;
 }

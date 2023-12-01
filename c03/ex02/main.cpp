@@ -6,35 +6,117 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:22:56 by vantonie          #+#    #+#             */
-/*   Updated: 2023/07/13 09:41:55 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/12/01 17:03:09 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
 int main() {
-    std::cout << "=== Testing ClapTrap ===" << std::endl;
-    ClapTrap clapTrap("ClapTrap");
-    clapTrap.attack("Enemy");
-    clapTrap.takeDamage(10);
-    clapTrap.beRepaired(5);
 
-    std::cout << "\n=== Testing ScavTrap ===" << std::endl;
-    ScavTrap scavTrap("ScavTrap");
-    scavTrap.attack("Enemy");
-    scavTrap.takeDamage(20);
-    scavTrap.beRepaired(10);
-    scavTrap.guardGate();
+  std::cout << "Clap Trap Tests" << std::endl;
 
-    std::cout << "\n=== Testing FragTrap ===" << std::endl;
-    FragTrap fragTrap("FragTrap");
-    fragTrap.attack("Enemy");
-    fragTrap.takeDamage(30);
-    fragTrap.beRepaired(15);
-    fragTrap.highFivesGuys();
+  ClapTrap clap;
+  ClapTrap clap1("ClapTrap1");
+  ClapTrap clap2("ClapTrap2");
 
-    return 0;
+  clap1.attack("ClapTrap2");
+  clap2.takeDamage(0);
+  clap1.attack("ClapTrap2");
+  clap2.takeDamage(0);
+  clap1.attack("ClapTrap2");
+  clap2.takeDamage(0);
+  clap1.attack("ClapTrap2");
+  clap2.takeDamage(0);
+  clap1.attack("ClapTrap2");
+  clap2.takeDamage(0);
+  clap1.attack("ClapTrap2");
+  clap2.takeDamage(0);
+  clap1.attack("ClapTrap2");
+  clap2.takeDamage(0);
+  clap1.attack("ClapTrap2");
+  clap2.takeDamage(0);
+  clap1.attack("ClapTrap2");
+  clap2.takeDamage(0);
+  clap1.attack("ClapTrap2");
+  clap2.takeDamage(0);
+  clap1.attack("ClapTrap2");
+  clap2.takeDamage(0);
+  clap1.attack("ClapTrap2");
+  clap2.takeDamage(0);
+  clap1.attack("ClapTrap2");
+  clap2.takeDamage(0);
+  clap1.attack("ClapTrap2");
+  clap2.takeDamage(0);
+  clap1.attack("ClapTrap2");
+  clap2.takeDamage(0);
+  clap1.attack("ClapTrap2");
+  clap2.takeDamage(0);
+  clap1.attack("ClapTrap2");
+  clap2.takeDamage(0);
+
+  std::cout << std::endl;
+  std::cout << "ScavTrap Tests" << std::endl;
+
+  ScavTrap scav;
+  ScavTrap scav1("ScavTrap1");
+  ScavTrap scav2("ScavTrap2");
+
+  scav1.attack("ScavTrap2");
+  scav2.takeDamage(20);
+  scav1.attack("ScavTrap2");
+  scav2.takeDamage(20);
+  scav1.attack("ScavTrap2");
+  scav2.takeDamage(20);
+  scav1.attack("ScavTrap2");
+  scav2.takeDamage(20);
+  scav2.beRepaired(50);
+  scav1.attack("ScavTrap2");
+  scav2.takeDamage(20);
+  scav1.attack("ScavTrap2");
+  scav2.takeDamage(20);
+  scav2.beRepaired(50);
+  scav1.attack("ScavTrap2");
+  scav2.takeDamage(20);
+  scav1.attack("ScavTrap2");
+  scav2.takeDamage(20);
+  scav1.attack("ScavTrap2");
+  scav2.takeDamage(20);
+  scav1.guardGate();
+
+  std::cout << std::endl;
+  std::cout << "FragTrap Tests" << std::endl;
+
+  FragTrap frag;
+  FragTrap frag1("FragTrap 1");
+  FragTrap frag2("FragTrap 2");
+
+  frag1.attack("FragTrap2");
+  frag2.takeDamage(30);
+  frag1.attack("FragTrap2");
+  frag2.takeDamage(30);
+  frag1.attack("FragTrap2");
+  frag2.takeDamage(30);
+  frag2.beRepaired(100);
+  frag1.attack("FragTrap2");
+  frag2.takeDamage(30);
+  frag1.attack("FragTrap2");
+  frag2.takeDamage(30);
+  frag2.beRepaired(100);
+  frag1.attack("FragTrap2");
+  frag2.takeDamage(30);
+  frag1.attack("FragTrap2");
+  frag2.takeDamage(30);
+  frag1.attack("FragTrap2");
+  frag2.takeDamage(30);
+  frag1.attack("FragTrap2");
+  frag2.takeDamage(30);
+  frag1.attack("FragTrap2");
+  frag2.takeDamage(30);
+  frag2.beRepaired(100);
+  frag1.highFivesGuys();
+  
+  return 0;
 }

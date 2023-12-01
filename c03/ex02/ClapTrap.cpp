@@ -6,11 +6,19 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 10:18:44 by vantonie          #+#    #+#             */
-/*   Updated: 2023/07/13 09:46:53 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/12/01 17:00:35 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+  ClapTrap::ClapTrap() {
+    this->_name = "Clap Trap";
+    this->_hitPoints = 10;
+    this->_energyPoints = 10;
+    this->_attackDamage = 0;
+    std::cout << "Default constructor called." << std::endl;
+  }
 
 ClapTrap::ClapTrap(std::string name) {
   this->_name = name;
@@ -52,15 +60,19 @@ void ClapTrap::attack(const std::string& target) {
 
 void ClapTrap::takeDamage(unsigned int amount) {
   if(this->_hitPoints <= 0)
-    std::cout << "Can't take more damage," << this->_name << "has already gone to the Borderlands." << std::endl;
-  std::cout << this->_name << " takes " << amount << " damage." << std::endl;
+    std::cout << "Can't take more damage, " << this->_name << " has already gone to the Borderlands." << std::endl;
+  else
+    std::cout << this->_name << " takes " << amount << " damage." << std::endl;
   this->_hitPoints -= amount;
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
   if(this->_hitPoints <= 0)
-    std::cout << "This Claptrap can´t be repared anymore, it is already gone to Belieze" << std::endl;
-  std::cout << "ClapTrap " << this->_name << " uses " << amount << " energy points to recover " << amount << " hit points " << std::endl;
+    std::cout << "This Scavtrap can't be repared anymore, it is already gone to Belieze" << std::endl;
+  else if(amount > this->_energyPoints || this->_energyPoints <= 0)
+    std::cout << "Not enough energy" << std::endl;
+  else
+    std::cout << this->_name << " uses " << amount << " energy points to recover " << amount << " hit points." << std::endl;
   this->_hitPoints += amount;
   this->_energyPoints -= amount;
 }

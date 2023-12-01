@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 09:24:59 by vantonie          #+#    #+#             */
-/*   Updated: 2023/07/13 09:45:58 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/12/01 16:43:55 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@
   std::cout << "Copy assigment opertator called for FragTrap " << this->_name << std::endl;
   return *this;
   }
-
 
   FragTrap::~FragTrap() {
     std::cout << "Destructor called for FragTrap " << this->_name << std::endl;
