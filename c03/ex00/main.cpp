@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 11:22:56 by vantonie          #+#    #+#             */
-/*   Updated: 2023/12/01 17:05:15 by vantonie         ###   ########.fr       */
+/*   Updated: 2023/12/01 17:16:54 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int main() {
   clap2.takeDamage(0);
   clap1.attack("ClapTrap2");
   clap2.takeDamage(0);
+  clap1.beRepaired(0);
 
   return 0;
 }
