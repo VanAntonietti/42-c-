@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 15:32:38 by vantonie          #+#    #+#             */
-/*   Updated: 2023/12/01 16:29:05 by vantonie         ###   ########.fr       */
+/*   Updated: 2024/01/03 12:18:06 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,10 @@
   void ScavTrap::guardGate() {
     std::cout << "ScavTrap " << this->_name << " is now in Getekeeper mode." << std::endl;
   }
+
+  void ScavTrap::attack(const std::string& target) {
+  if(this->_hitPoints <=0 || this->_energyPoints <= 0)
+    std::cout << "There are not enough resources for " << this->_name << ", please buy another EA DLC to recover." << std::endl;
+  std::cout << this->_name << " fiercely attacks " << target << " and deals " << this->_attackDamage << " damage." << std::endl;
+  this->_energyPoints--;
+}
