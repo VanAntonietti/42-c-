@@ -44,7 +44,7 @@
   void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
     if (this->getIfSigned() == false)
       throw AForm::FormNotSignedException();
-    if (executor.getGrade() <= this->getGradeRequired())
+    if (executor.getGrade() >= this->getGradeRequired())
       throw AForm::GradeTooLowException();
     std::ofstream fd;
     fd.open((_target + "_shrubbery").c_str(), std::ios::out | std::ios::trunc);

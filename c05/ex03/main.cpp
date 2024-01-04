@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 13:12:10 by vantonie          #+#    #+#             */
-/*   Updated: 2023/08/01 22:07:19 by vantonie         ###   ########.fr       */
+/*   Updated: 2024/01/04 19:10:55 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ void test_ex01(void) {
 }
 
 void test_ex03() {
+  std::cout << "TEST EX03" << std::endl;
   Intern		someRandomIntern;
   AForm 		*test;
   Bureaucrat	b1("CO", 1);

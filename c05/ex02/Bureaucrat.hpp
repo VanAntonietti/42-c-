@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 13:12:08 by vantonie          #+#    #+#             */
-/*   Updated: 2023/08/01 21:09:49 by vantonie         ###   ########.fr       */
+/*   Updated: 2024/01/04 19:19:42 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include <cstdlib>
 #include "AForm.hpp"
 
 class AForm;

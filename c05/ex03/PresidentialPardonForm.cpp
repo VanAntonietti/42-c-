@@ -6,7 +6,7 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 19:38:09 by vantonie          #+#    #+#             */
-/*   Updated: 2023/08/01 20:49:17 by vantonie         ###   ########.fr       */
+/*   Updated: 2024/01/04 19:19:14 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
       std::cout<< "Form not signed" << std::endl;
       throw AForm::FormNotSignedException();
     }
-    if (executor.getGrade() <= this->getGradeRequired()) {
+    if (executor.getGrade() >= this->getGradeRequired()) {
       throw AForm::GradeTooLowException();
     }
     std::cout << _target << " has been pardoned by Zafod Beeblebrox." << std::endl;
