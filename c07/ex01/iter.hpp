@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 21:01:53 by vantonie          #+#    #+#             */
-/*   Updated: 2023/08/02 21:08:19 by vantonie         ###   ########.fr       */
+/*   Updated: 2024/01/05 17:35:37 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,10 @@ void iter(T *array, size_t length, void (*f)(T const &)) {
 }
 
 template <typename T>
-void print(T const &x) {
-  std::cout << x << std::endl;
-}
-
-template <typename T>
-void even(T const &x) {
-  if (x % 2 == 0) {
-    std::cout << x << std::endl;
+void iter(T *array, size_t lenght, void (*f)(T &)) {
+  for (size_t i = 0; i < lenght; i++) {
+    f(array[i]);
   }
 }
-
 
 #endif

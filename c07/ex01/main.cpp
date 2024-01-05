@@ -6,24 +6,43 @@
 /*   By: vantonie <vantonie@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 21:06:00 by vantonie          #+#    #+#             */
-/*   Updated: 2023/08/02 21:17:50 by vantonie         ###   ########.fr       */
+/*   Updated: 2024/01/05 16:04:24 by vantonie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include <string>
+#include <vector>
 #include "iter.hpp"
 
-int main( void ) {
-  int a[9] = {50, 56, 83, 90, 103, 110, 120, 131, 14};
-  char b[9] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'};
-  double c[9] = {1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7, 8.8, 9.9};
-  
-  std::cout << "Array of int" << std::endl;
-  ::iter(a, 9, print);
-  ::iter(a, 9, even);
-  std::cout << "Array of char" << std::endl;
-  ::iter(b, 9, print);
-  ::iter(b, 9, even);
-  std::cout << "Array of Float" << std::endl;
-  ::iter(c, 9, print);
+class Foo
+{
+  public:
+    Foo( void ) : _n( 42 ) { return; }
+    int get( void ) const { return this->_n; }
+  private:
+    int _n;
+};
+
+std::ostream & operator<<( std::ostream & o, Foo const & rhs )
+{
+  o << rhs.get();
+  return o;
+}
+
+template< typename T >
+void print( T& x )
+{
+  std::cout << x << std::endl;
+  return;
+}
+
+int main() {
+  int tab[] = { 0, 1, 2, 3, 4 };
+  Foo tab2[5];
+
+  iter( tab, 5, print<const int> );
+  iter( tab2, 5, print<Foo> );
+
   return 0;
 }
